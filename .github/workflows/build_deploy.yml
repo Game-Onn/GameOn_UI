@@ -20,8 +20,8 @@ jobs:
         run: npm run build
 
       - name: deploy on netlify
-        uses: netlify/actions@v1
+        uses: jsmrcaga/action-netlify-deploy@v2.2.0
         with:
-          auth_token: ${{secrets.GAMEON_UI_NETIFLY}}
-          site_id: ${{secrets.GAMEON_UI_NETIFLY_SITEID}}
-          build_dir: ./build
+          NETLIFY_AUTH_TOKEN: ${{secrets.GAMEON_UI_NETIFLY}}
+          NETLIFY_SITE_ID: ${{secrets.GAMEON_UI_NETIFLY_SITEID}}
+          build_directory: ./build
