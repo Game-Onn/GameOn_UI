@@ -1,6 +1,6 @@
-function Login() {
+function Create() {
     return (
-        <div className="login">
+        <div className="create">
             <img src="src/logo.svg" className="mini-logo" alt="minilogo" />
             <input type="text" name="uid" placeholder="Phone No."/>
             <input type="text" name="uname" placeholder="Username"/>
@@ -11,4 +11,4 @@ function Login() {
     )
 }
 
-export default Login;
+export default Create;
