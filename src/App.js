@@ -1,9 +1,10 @@
 import './App.css';
+import Login from './pages/login';
 
 function App() {
   return (
     <div>
-        this is Game on Project
+        <Login />
     </div>
   );
 }
