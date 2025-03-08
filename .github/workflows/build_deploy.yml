@@ -1,0 +1,27 @@
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4.2.2
+        
+      - name: setup nodeJs
+        uses: actions/setup-node@v4.2.0
+
+      - name: install dependencies
+        run: npm install
+
+      - name: build code
+        run: npm run build
+
+      - name: deploy on netlify
+        uses: netlify/actions@v1
+        with:
+          auth_token: ${{secrets.GAMEON_UI_NETIFLY}}
+          site_id: ${{secrets.GAMEON_UI_NETIFLY_SITEID}}
+          build_dir: ./build
