@@ -19,9 +19,8 @@ jobs:
       - name: build code
         run: npm run build
 
-      - name: deploy on netlify
-        uses: jsmrcaga/action-netlify-deploy@v2.2.0
-        with:
-          NETLIFY_AUTH_TOKEN: ${{secrets.GAMEON_UI_NETIFLY}}
-          NETLIFY_SITE_ID: ${{secrets.GAMEON_UI_NETIFLY_SITEID}}
-          build_directory: ./build
+      - name: Install Netlify CLI
+        run: npm install -g netlify-cli
+        
+      - name: Deploy to Netlify
+        run: netlify deploy --prod --site ${{ secrets.GAMEON_UI_NETIFLY_SITEID }} --auth ${{ secrets.GAMEON_UI_NETIFLY }} --dir ./build
